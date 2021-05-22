@@ -17,7 +17,7 @@ If you're on Windows, well, good luck with that ¯\\\_(ツ)_/¯
 ## --- How to run ---
 
 Just CD to the repo and run:<br>
->`g++ -o a tests/drawLine.cpp tests/drawAffineCombinationP3.cpp tests/drawAffineCombinationP4.cpp graphicsss.cpp -lsfml-graphics -lsfml-window -lsfml-system && ./a`
+>`g++ -o a tests/*.cpp graphicsss.cpp -lsfml-graphics -lsfml-window -lsfml-system && ./a`
 
 ## --- Vector Space ---
 
