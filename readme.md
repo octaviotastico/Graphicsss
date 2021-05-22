@@ -17,7 +17,7 @@ If you're on Windows, well, good luck with that ¯\\\_(ツ)_/¯
 ## --- How to run ---
 
 Just CD to the repo and run:<br>
->`g++ -o a graphicsss.cpp -lsfml-graphics -lsfml-window -lsfml-system && ./a`
+>`g++ -o a tests/drawLine.cpp tests/drawAffineCombinationP3.cpp tests/drawAffineCombinationP4.cpp graphicsss.cpp -lsfml-graphics -lsfml-window -lsfml-system && ./a`
 
 ## --- Vector Space ---
 
@@ -89,7 +89,7 @@ P = (1 - t)^2 p1 + 2t * (1 - t) p2 + t^2 p3
 
 With this technique, we can create curves, like this:
 
-![Affine Combination](./assets/1.png "Example of affine combination")
+![Affine Combination](./assets/1.png "Affine combination for triangle")
 
 And if we add one more point, like if we have a square, for example, then:
 ```
@@ -110,13 +110,18 @@ Finally:
 P = (1 - t)^3 p1 + 3 * t * (1 - t)^2 p2 + 3 * t^2 * (1 - t) p3 + t^3 * p4
 ```
 
-![Affine Combination](./assets/2.png "Example of affine combination")
+![Affine Combination](./assets/2.png "Affine combination for square")
 
 So, it's basically the same, but with one more point.
 
 Note that we use the coefficients of the pascal triangle too xD.
 
-We could keep going on and on with this...
+We could keep going on and on with this, and use N points. <br>
+To do that, this ecuation will be useful:
+
+![Affine Combination](./assets/4.png "Example of affine combination")
+
+Then, to create an affine combination, the only thing we need, are those three matrices to calculate the N equations needed.
 
 ## --- Resources ---
 
