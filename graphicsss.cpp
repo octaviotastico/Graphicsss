@@ -95,6 +95,42 @@ void drawAffineCombinationP4(VertexArray* v, Vector2f p1, Vector2f p2, Vector2f 
   }
 }
 
+void chaikinsAlgorithm(VertexArray* v, unsigned int it) {
+  return;
+}
+
+void rotate2D(VertexArray* v, double angle) {
+  double RotationMatrix[3][3] = {
+    { cos(angle), sin(angle), 0},
+    {-sin(angle), cos(angle), 0},
+    {          0,          0, 1}
+  };
+  for(unsigned int i = 0; i < 3; i++) {
+    double new_x = 0, new_y = 0;
+    for(unsigned int j = 0; j < 3; j++) {
+      new_x += RotationMatrix[j][i] * (*v)[i].position.x;
+      new_y += RotationMatrix[j][i] * (*v)[i].position.y;
+    }
+    (*v)[i] = Vertex(Vector2f(new_x, new_y));
+  }
+}
+
+void translate2D(VertexArray* v, double x_t, double y_t) {
+  double TranslateMatrix[3][3] = {
+    {  1,   0, 0},
+    {  0,   1, 0},
+    {x_t, y_t, 1},
+  };
+  for(unsigned int i = 0; i < 3; i++) {
+    double new_x = 0, new_y = 0;
+    for(unsigned int j = 0; j < 3; j++) {
+      new_x += TranslateMatrix[j][i] * (*v)[i].position.x;
+      new_y += TranslateMatrix[j][i] * (*v)[i].position.y;
+    }
+    (*v)[i] = Vertex(Vector2f(new_x, new_y));
+  }
+}
+
 int main() {
   // 60 FPS broder
   graphic_screen.setFramerateLimit(FPSLimit);
