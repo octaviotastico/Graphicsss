@@ -1,17 +1,12 @@
 #ifndef TESTS
 #define TESTS
 
-#include <bits/stdc++.h>
-#include <SFML/Graphics.hpp>
-#include "../graphicsss.hpp"
-
-using namespace std;
-using namespace sf;
+#include "../src/include.hpp"
 
 void testDrawLine(RenderWindow* screen);
 
-void testDrawAffineCombinationP3(RenderWindow* screen);
+void testQuadraticBezier(RenderWindow* screen);
 
-void testDrawAffineCombinationP4(RenderWindow* screen);
+void testCubicBezier(RenderWindow* screen);
 
 #endif
