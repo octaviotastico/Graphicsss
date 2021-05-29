@@ -24,7 +24,7 @@ void printVertexArray(VertexArray &v) {
 * @returns returns a Vertex array (i.e: a line)
 */
 Vertex* drawLine(Vertex* v, pair<double, double> &p1, pair<double, double> &p2) {
-  Vertex line[2];
+  Vertex* line = (Vertex*)malloc(sizeof(Vertex));
   line[0] = Vertex(Vector2f(p1.first, p1.second));
   line[1] = Vertex(Vector2f(p2.first, p2.second));
   return line;
@@ -39,6 +39,9 @@ Vertex* drawLine(Vertex* v, pair<double, double> &p1, pair<double, double> &p2) 
 *
 * @returns It saves in your vertex array the rotated figure.
 */
-Vector2f getVectorPercentage(Vector2f v1, Vector2f v2, double p) {
+Vector2f getVectorPercentage(Vector2f v1, Vector2f v2, float p) {
   return (p * (v2 - v1)) + v1;
+}
+Vector2f getVectorPercentage(Vertex v1, Vertex v2, float p) {
+  return (p * (v2.position - v1.position)) + v1.position;
 }

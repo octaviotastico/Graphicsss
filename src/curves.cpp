@@ -12,7 +12,7 @@
 *
 * @returns It saves in your vertex array the rotated figure.
 */
-void quadraticBezier(VertexArray* v, Vector2f p1, Vector2f p2, Vector2f p3, unsigned int it, bool rewrite = false) {
+void quadraticBezier(VertexArray &v, Vector2f p1, Vector2f p2, Vector2f p3, unsigned int it, bool rewrite = false) {
   double t, t1, t2, t3;
   for (unsigned int i = 0; i < it + 1; i++) {
     t = (double)i / it;
@@ -21,12 +21,12 @@ void quadraticBezier(VertexArray* v, Vector2f p1, Vector2f p2, Vector2f p3, unsi
     t3 = (t * t);
 
     if (rewrite) {
-      (*v)[i].position = Vector2f(
+      v[i].position = Vector2f(
         (t1 * p1.x) + (t2 * p2.x) + (t3 * p3.x),
         (t1 * p1.y) + (t2 * p2.y) + (t3 * p3.y)
       );
     } else {
-      (*v).append(Vertex(Vector2f(
+      v.append(Vertex(Vector2f(
         (t1 * p1.x) + (t2 * p2.x) + (t3 * p3.x),
         (t1 * p1.y) + (t2 * p2.y) + (t3 * p3.y)
       )));
@@ -48,7 +48,7 @@ void quadraticBezier(VertexArray* v, Vector2f p1, Vector2f p2, Vector2f p3, unsi
 *
 * @returns It saves in your vertex array the rotated figure.
 */
-void cubicBezier(VertexArray* v, Vector2f p1, Vector2f p2, Vector2f p3, Vector2f p4, unsigned int it, bool rewrite = false) {
+void cubicBezier(VertexArray &v, Vector2f p1, Vector2f p2, Vector2f p3, Vector2f p4, unsigned int it, bool rewrite = false) {
   double t, t1, t2, t3, t4;
   for (unsigned int i = 0; i < it + 1; i++) {
     t = (double)i / it;
@@ -58,12 +58,12 @@ void cubicBezier(VertexArray* v, Vector2f p1, Vector2f p2, Vector2f p3, Vector2f
     t4 = (t * t * t);
 
     if (rewrite) {
-      (*v)[i].position = (Vector2f(
+      v[i].position = (Vector2f(
         (t1 * p1.x) + (t2 * p2.x) + (t3 * p3.x) + (t4 * p4.x),
         (t1 * p1.y) + (t2 * p2.y) + (t3 * p3.y) + (t4 * p4.y)
       ));
     } else {
-      (*v).append(Vertex(Vector2f(
+      v.append(Vertex(Vector2f(
         (t1 * p1.x) + (t2 * p2.x) + (t3 * p3.x) + (t4 * p4.x),
         (t1 * p1.y) + (t2 * p2.y) + (t3 * p3.y) + (t4 * p4.y)
       )));

@@ -31,14 +31,15 @@ Color dark_gray = Color(107, 107, 107);
 Color bright_gray = Color(105, 105, 105);
 
 // Curves cpp
-void quadraticBezier(VertexArray* v, Vector2f p1, Vector2f p2, Vector2f p3, unsigned int it);
-void cubicBezier(VertexArray* v, Vector2f p1, Vector2f p2, Vector2f p3, Vector2f p4, unsigned int it);
-void chaikinsAlgorithm(VertexArray &v, unsigned int it) {
+void quadraticBezier(VertexArray &v, Vector2f p1, Vector2f p2, Vector2f p3, unsigned int it);
+void cubicBezier(VertexArray &v, Vector2f p1, Vector2f p2, Vector2f p3, Vector2f p4, unsigned int it);
+void chaikinsAlgorithm(VertexArray &v, unsigned int it);
 
 // Helpers cpp
 void printVertexArray(VertexArray &v);
 Vertex* drawLine(Vertex* v, pair<double, double> &p1, pair<double, double> &p2);
-Vector2f getVectorPercentage(Vector2f v1, Vector2f v2, double p);
+Vector2f getVectorPercentage(Vector2f v1, Vector2f v2, float p);
+Vector2f getVectorPercentage(Vertex v1, Vertex v2, float p);
 
 // 2D geometry cpp
 void rotate2D(VertexArray* v, double angle);
