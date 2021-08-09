@@ -1,4 +1,4 @@
-#include "include.hpp"
+#include "includes.hpp"
 
 /*
 * Generates a cuadratic bezier curve given 3 points using an affine combination
@@ -82,8 +82,10 @@ void cubicBezier(VertexArray &v, Vector2f p1, Vector2f p2, Vector2f p3, Vector2f
 void chaikinsAlgorithm(VertexArray &v, unsigned int it) {
   for (unsigned int i = 0; i < it; i++) {
     size_t v_sz = v.getVertexCount();
-    // VertexArray v_aux(LineStrip, v_sz * 2);
     VertexArray v_aux(LineStrip);
+
+    printVertexArray(v);
+
     for(unsigned int i = 0; i < v_sz - 1; i++) {
       v_aux.append(Vertex(getVectorPercentage(v[i], v[i+1], 0.2)));
       v_aux.append(Vertex(getVectorPercentage(v[i], v[i+1], 0.8)));

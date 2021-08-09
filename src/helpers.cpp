@@ -1,4 +1,4 @@
-#include "include.hpp"
+#include "includes.hpp"
 
 /*
 * Prints a given VertexArray
@@ -23,8 +23,8 @@ void printVertexArray(VertexArray &v) {
 *
 * @returns returns a Vertex array (i.e: a line)
 */
-Vertex* drawLine(Vertex* v, pair<double, double> &p1, pair<double, double> &p2) {
-  Vertex* line = (Vertex*)malloc(sizeof(Vertex));
+Vertex* drawLine(pair<double, double> &p1, pair<double, double> &p2) {
+  Vertex *line = (Vertex*)malloc(2 * sizeof(Vertex));
   line[0] = Vertex(Vector2f(p1.first, p1.second));
   line[1] = Vertex(Vector2f(p2.first, p2.second));
   return line;
@@ -44,4 +44,33 @@ Vector2f getVectorPercentage(Vector2f v1, Vector2f v2, float p) {
 }
 Vector2f getVectorPercentage(Vertex v1, Vertex v2, float p) {
   return (p * (v2.position - v1.position)) + v1.position;
+}
+
+void paintLine(VertexArray &v, Color color) {
+  for (unsigned int i = 0; i < v.getVertexCount(); i++) {
+    v[i].color = color;
+  }
+}
+
+void paintLineGradient(VertexArray &v, Color color1, Color color2, float p) {
+  unsigned int first_segment = (unsigned int)(v.getVertexCount() * p);
+  for (unsigned int i = 0; i < first_segment; i++) {
+    v[i].color = color1;
+  }
+  for (unsigned int i = first_segment; i < v.getVertexCount(); i++) {
+    v[i].color = color2;
+  }
+}
+
+void printText(RenderWindow* window, string text, Vector2f position, Color color, Text::Style style) {
+  Text t;
+  Font f;
+  f.loadFromFile("./assets/fonts/ubuntumono.ttf");
+  t.setFont(f);
+  t.setString(text);
+  t.setCharacterSize(24);
+  t.setFillColor(color);
+  t.setStyle(style);
+  t.setPosition(position);
+  (*window).draw(t);
 }

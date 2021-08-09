@@ -1,4 +1,4 @@
-#include "include.hpp"
+#include "includes.hpp"
 
 /*
 * Takes an array of vertex, and rotates it by the given values.
@@ -9,9 +9,7 @@
 * @returns It saves in your vertex array the rotated figure.
 */
 void rotate2D(VertexArray* v, double angle) {
-  // Need to delete this matrix, because its
-  // slower (and stupid) to multiply this sh!t
-  // instead of coming up with a better solution
+  // TODO: Delete this matrix
   double RotationMatrix[3][3] = {
     { cos(angle), sin(angle), 0},
     {-sin(angle), cos(angle), 0},
